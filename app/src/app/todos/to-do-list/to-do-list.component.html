@@ -1,3 +1,6 @@
-<main >
-  <app-to-do-form></app-to-do-form>
+<main class="">
+  <app-to-do-form />
+  <div class="row gy-5 mt-3">
+    <app-to-do-item *ngFor="let todo of todos" [todo]="todo" class="col-3" />
+  </div>
 </main>

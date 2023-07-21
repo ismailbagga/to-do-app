@@ -1,1 +1,31 @@
-<p>to-do-item works!</p>
+<div class="card position-relative">
+  <span
+    placement="top"
+    ngbTooltip="Delete The Task"
+    class="position-absolute top-0 end-0"
+    style="transform: translate(50%, -50%); z-index: 1000"
+  >
+    <i class="bi bi-x-square-fill text-danger"></i>
+  </span>
+  <img [src]="todo.url" class="card-img-top d-block pt-2 px-2" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ todo.title }}</h5>
+    <p class="card-text">
+      <small class="text-body-secondary">Last upda ted 3 mins ago</small>
+    </p>
+
+    <p class="card-text">
+      {{ todo.description }}
+    </p>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckChecked"
+        [checked]="todo.isCompleted"
+      />
+      <label class="form-check-label" for="flexCheckChecked"> Completed </label>
+    </div>
+  </div>
+</div>
