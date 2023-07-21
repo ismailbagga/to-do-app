@@ -1,1 +1,74 @@
-<p>to-do-form works!</p>
+<section>
+  <main class="d-flex justify-content-between mt-5">
+    <div class="search-field">
+      <i class="bi bi-search"></i>
+      <input class="border-0 bg-transaprent" placeholder="Search For Tasks" />
+    </div>
+    <button
+      class="btn btn-secondary btn-sm"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      <ng-template [ngIf]="isCollapsed" [ngIfElse]="filterVisibleIcon">
+        <i class="bi bi-sort-down"></i>
+      </ng-template>
+      <ng-template #filterVisibleIcon>
+        <i class="bi bi-sort-up"></i>
+      </ng-template>
+    </button>
+  </main>
+  <div class="mt-2" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <div class="card">
+      <div class="card-body">
+        <div class="collapse-wrapper row">
+          <div class="collapse-first-col col col-12 col-md-6">
+            <div
+              class="btn-group btn-group-sm"
+              role="group"
+              aria-label="Small radio toggle button group"
+            >
+              <ng-container *ngFor="let item of tasksStates">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  [name]="item.value"
+                  autocomplete="off"
+                  [checked]="item.value === taskState"
+                />
+                <label
+                  class="btn btn-outline-secondary"
+                  (click)="taskState = item.value"
+                  for="btnradio1"
+                  >{{ item.label }}</label
+                >
+              </ng-container>
+            </div>
+          </div>
+          <div class="collapse-second-col col col-12 col-md-6">
+            <div
+              class="btn-group btn-group-sm"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <ng-container *ngFor="let item of taskOrderOptions">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  [name]="item.value"
+                  autocomplete="off"
+                  [checked]="item.value === orderBy"
+                />
+                <label
+                  class="btn btn-outline-secondary"
+                  (click)="orderBy = item.value"
+                  for="btnradio1"
+                  >{{ item.label }}</label
+                >
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

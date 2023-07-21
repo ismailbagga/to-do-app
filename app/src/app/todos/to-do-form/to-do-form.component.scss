@@ -1,0 +1,36 @@
+@import "src/scss/variables";
+.collapse-wrapper {
+  .collapse-second-col {
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (max-width: 768px) {
+      justify-content: flex-start;
+
+      margin-top: 1rem;
+    }
+  }
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  width: 15rem;
+  background-color: $darkGray;
+  padding: 4px 5px;
+  border-radius: 3px;
+
+  & > input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    color: $darkGray_3;
+    &::placeholder {
+      color: $darkGray_2;
+    }
+  }
+  & > i {
+    color: $darkGray_3;
+  }
+}
